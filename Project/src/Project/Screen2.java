@@ -66,10 +66,13 @@ public class Screen2 {
 			if(file_List.length!=0) {
 				int flag = 0;
 				for (String i:file_List) {
-					if(i.equals(fileName)) {
-						System.out.println("File Found");
-						flag = 1;
-						break;
+					File fx = new File(this.filePath+"//"+i);
+					if(fx.isFile()) {
+						if(i.equals(fileName)) {
+							System.out.println("File Found");
+							flag = 1;
+							break;
+						}
 					}
 				}
 				if (flag==0) {

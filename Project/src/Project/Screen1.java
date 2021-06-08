@@ -16,9 +16,20 @@ public class Screen1 {
 		try {
 			File f = new File(filePath);
 			this.file_List = f.list();
+			
 			if(this.file_List.length!=0) {
+				int flag2 = 0;
 				for (String i:this.file_List) {
-					tree.add(i);
+					File fx = new File(this.filePath+"//"+i);
+					
+					if(fx.isFile()) {
+						tree.add(i);
+						flag2 = 1; 
+					}
+				}
+				if(flag2==0) {
+					System.out.println("No Files in the directory ");
+					return null;
 				}
 
 			}
